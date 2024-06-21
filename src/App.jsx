@@ -9,7 +9,10 @@ function App() {
   return (
     <>
     {/* <BestSeller/> */}
+    <div className="main">
+    <BestSeller/>
     <TopBrands/>
+    </div>
     </>
    
   )
