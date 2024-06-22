@@ -10,6 +10,21 @@ const BestSeller = () => {
     // Calculate the total number of slides
     const totalSlides = Math.ceil(imageUrls.length / imagesToShow);
 
+    // Hover Buttons
+    const [isHovered, setIsHovered] = useState(false);
+
+    const handleMouseEnter = () => {
+        setIsHovered(true);
+       
+    };
+
+    const handleMouseLeave = () => {
+        setIsHovered(false);
+
+    };
+    
+    // hover buttons
+
     const nextSlide = () => {
         setCurrentIndex((prevIndex) =>
             // num=prevIndex
@@ -48,9 +63,19 @@ const BestSeller = () => {
             <div class="subheading">
                 <p>Your Cosmetics and Skincare Products</p>
             </div>
-            <div class="slideBtn">
-                <button class="first">New Arrivals</button>
-                <button class="second">Trending Now</button>
+            <div class="slideBtn container">
+                <button onMouseEnter={handleMouseEnter}
+                    onMouseLeave={handleMouseLeave}  style={{
+                        backgroundColor: isHovered ? '#ffff' : '#E9ACB6',
+                        color: isHovered ? '#000' : '#fff' ,
+                        transition: 'all 0.3s ease'
+                    }} class="first">New Arrivals</button>
+                <button onMouseEnter={handleMouseEnter}
+                    onMouseLeave={handleMouseLeave} style={{
+                        backgroundColor: isHovered ? '#E9ACB6':'#ffff' ,
+                        color: isHovered ? '#fff':'#000' ,
+                        transition: 'all 0.3s ease'
+                    }} class="second">Trending Now</button>
             </div>
             <div className="product-container">
 
@@ -75,7 +100,7 @@ const BestSeller = () => {
                     </button>
                 ))}
 
-               
+
 
             </div>
             <div class="see-all">

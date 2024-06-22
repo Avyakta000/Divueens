@@ -2,7 +2,7 @@
     margin-top: 2rem;
 }
 
-.heading{
+/* .heading{
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -10,9 +10,9 @@
     align-items: center;
     width: 100%;
     height: 10vh;
-}
+} */
 
-.heading hr {
+/* .heading hr {
     width: 200px;
     height: 3px;
     outline: none;
@@ -28,7 +28,7 @@
 .hr-right{
     background: linear-gradient(to left, #e9acb600, #e9acb646, #e9acb6bd, #E9ACB6);
 }
-
+ */
 
 .brands {
     display: flex;
@@ -127,7 +127,7 @@
 
 .bar::-webkit-scrollbar {
     width: 13px;
-    height: 15px;
+    height: 5px;
     
 }
 
@@ -139,19 +139,18 @@
 /* scroll end */
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+@media (max-width: 400px) {
+    .heading {
+        font-size: .57rem;
+        text-align: center;
+    }
+    .subheading{
+      font-size: .5rem;
+      text-align: center;
+    }
+  
+   
+  }
 
 
 
@@ -162,13 +161,20 @@
     /* background-color: #CF9FFF; */
     position: relative;
     background: linear-gradient(to left, #D3DEFA, #C7AEEF, #D3C4EC, #C5AFED);
-    padding: 1rem 1rem;
+    padding: 1.5rem 1rem;
     text-align: center;
 }
 
-.heading-2 h2{
+.heading-2 h1{
 
-    font-weight: bolder;
+    /* font-weight: bolder; */
+    /* outline: #D3DEFA; */
+    /* color: white; Text color */
+    text-shadow:
+        -1px -1px 0 #fff,   /* Top left shadow */
+        1px -1px 0 #fff,    /* Top right shadow */
+        -1px 1px 0 #fff,    /* Bottom left shadow */
+        1px 1px 0 #fff;     /* Bottom right shadow */
 }
 
 
@@ -246,11 +252,16 @@
     }
 
     .heading-2 {
-        padding: 0.5rem 1rem;
+        padding: 1.5rem 1rem;
     }
 
-    .heading-2 h2 {
+    .heading-2 h1 {
         font-size: 1.5rem;
+    }
+    .bar::-webkit-scrollbar {
+        width: 13px;
+        height: 3.5px;
+        
     }
 }
 
@@ -277,41 +288,35 @@
     }
 
     .heading-2 {
-        padding: 0.5rem;
+        padding: 1rem 0.5rem;
     }
 
-    .heading-2 h2 {
+    .heading-2 h1 {
         font-size: 1.2rem;
+    }
+    .bar::-webkit-scrollbar {
+        width: 13px;
+        height: 3px;
+        
     }
 }
 
 @media (max-width: 480px) {
-    .heading {
-        flex-direction: column;
-        gap: 0.5rem;
-    }
+  .card{
+    min-width: 35%;
+  }
 
-    .heading hr {
-        width: 75px;
-    }
+  .heading-2 {
+    padding: 1rem 0.5rem;
+}
 
-    .brands {
-        justify-content: center;
-        overflow-x: auto;
-       
-        height: 200px;
-    }
+.heading-2 h1 {
+    font-size: .8rem;
+}
+.bar::-webkit-scrollbar {
+    width: 13px;
+    height: 2px;
+    
+}
 
-    .brand-container {
-        width: 120px;
-        height: 70px;
-    }
-
-    .heading-2 {
-        padding: 0.5rem;
-    }
-
-    .heading-2 h1 {
-        font-size: 1rem;
-    }
 }
