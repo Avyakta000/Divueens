@@ -1,94 +1,65 @@
-import React, { useEffect, useState } from 'react'
-// import './banner.js'
-import { banner } from '../../assets/assets.js'
-
+import React, { useEffect, useState } from 'react';
+import { banner } from '../../assets/assets.js';
 
 const Banner = () => {
-    // console.log(banner, 'banner')
     const [currentBannerSlideIndex, setCurrentBannerSlideIndex] = useState(0);
-    const totalSlides = 4; // Update this according to the number of slides you have
+    const totalSlides = banner.length;
 
     const changeBannerSlide = (direction) => {
         const newIndex = (currentBannerSlideIndex + direction + totalSlides) % totalSlides;
         setCurrentBannerSlideIndex(newIndex);
     };
 
-    const currentBannerSlide = (index) => {
-        setCurrentBannerSlideIndex(index);
-    };
-
-    const updateBannerSlidePosition = () => {
-        const slides = document.querySelector('.slides');
+    useEffect(() => {
+        const slides = document.querySelector('.ban_slides');
         const offset = -currentBannerSlideIndex * 100;
         slides.style.transform = `translateX(${offset}%)`;
-        // updateDots();
-    };
-
-    // const updateDots = () => {
-    //     const dots = document.querySelectorAll('.dot');
-    //     dots.forEach(dot => dot.classList.remove('active'));
-    //     dots[currentSlideIndex].classList.add('active');
-    // };
-
-
-
-
-    useEffect(() => {
 
         const interval = setInterval(() => {
-            changeBannerSlide(1); // Move to the next slide
-        }, 3000); // Change slide every 3 seconds
-        updateBannerSlidePosition();
+            changeBannerSlide(1);
+        }, 3000);
 
         // Clear the interval when the component unmounts
         return () => clearInterval(interval);
-    }, [currentBannerSlideIndex]); // Add currentSlideIndex as a dependency
-
+    }, [currentBannerSlideIndex, totalSlides]);
 
     return (
         <>
-            <h2 className='primary'> Welcome to Divueens</h2>
+            <h2 className='primary'>Welcome to Divueens</h2>
             <section className="banner">
-                <div className="banner-slider">
-                    <div className="slides">
-                        {/* Slide 1 */}
-
-                        {
-                            banner.map((item, index) => (
-                                <div key={index} className="slide">
-                                    <div className="banner-image">
-                                    <img src={item} alt="Beauty Combo 1" />
-                                    </div>
+                <div style={{ overflow: 'hidden', width: '-webkit-fill-available' }} className="ban_slider">
+                    <div className="ban_slides" style={{ display: 'flex', transition: 'transform 0.5s ease-in-out' }}>
+                        {banner.map((item, index) => (
+                            <div key={index} className="ban_slide" style={{ minWidth: '100%' }}>
+                                <div className="banner-image">
+                                    <img src={item} alt={`Banner Slide ${index + 1}`} />
                                 </div>
-
-                            ))
-                        }
-         
-
-                        {/* end slide */}
-
+                            </div>
+                        ))}
                     </div>
-                    <div className="navigation">
+                    {/* <div className="navigation">
                         <button className="prev" onClick={() => changeBannerSlide(-1)}>❮</button>
                         <button className="next" onClick={() => changeBannerSlide(1)}>❯</button>
-                    </div>
+                    </div> */}
+
                     {/* <div className="banner-button">
-            <button style={{
-                color:'#ffff',
-                backgroundColor:'#000',
-                borderRadius:'10px',
-                position:'absolute',
-                bottom:'60px',
-                left:'30px',
-                padding:'.5rem 1rem'
+                    <button style={{
+                        color: '#ffff',
+                        backgroundColor: '#000',
+                        borderRadius: '10px',
+                        position: 'absolute',
+                        bottom: '60%',
+                        left: '20px',
+                        padding: '.5rem 1rem'
 
 
-            }} id="banner-button">Join Now</button>
-            </div> */}
+                    }} id="banner-button">Join Now</button>
+                </div> */}
                 </div>
+               
             </section>
-
         </>
-    )
-}
- export default Banner
+    );
+};
+
+export default Banner;

@@ -24,9 +24,9 @@ const Subscription = () => {
     };
 
     const updateSlidePosition = () => {
-        const slides = document.querySelector('.slides');
+        const s_slides = document.querySelector('.sub_slides');
         const offset = -currentSlideIndex * 100;
-        slides.style.transform = `translateX(${offset}%)`;
+        s_slides.style.transform = `translateX(${offset}%)`;
         // updateDots();
     };
 
@@ -91,7 +91,7 @@ const Subscription = () => {
                 </div>
 
                 <div className="slider">
-                    <div className="slides">
+                    <div className="sub_slides">
                         {/* Slide 1 */}
                         <div className="slide">
                             <div className="item">
