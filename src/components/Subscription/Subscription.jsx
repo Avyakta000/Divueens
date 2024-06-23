@@ -260,8 +260,11 @@ const Subscription = () => {
                     <button onClick={seeAllProducts}>See All</button>
                 </div>
                 <h2 className="" style={{ alignItems: 'center' }}>Refer your Friend</h2>
+              
                 <div className="refer-section">
+                    <button style={{border:'none'}} className='image1'><a href="">
                     <img src={ref_pic} className="image1" alt="Refer a Friend" />
+                        </a></button>
                 </div>
                 <div className="contact-section">
                     <h2 className="">Stay in Touch</h2>

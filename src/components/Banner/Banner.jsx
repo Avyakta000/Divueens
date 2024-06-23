@@ -5,21 +5,21 @@ import { banner } from '../../assets/assets.js'
 
 const Banner = () => {
     // console.log(banner, 'banner')
-    const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
+    const [currentBannerSlideIndex, setCurrentBannerSlideIndex] = useState(0);
     const totalSlides = 4; // Update this according to the number of slides you have
 
-    const changeSlide = (direction) => {
-        const newIndex = (currentSlideIndex + direction + totalSlides) % totalSlides;
-        setCurrentSlideIndex(newIndex);
+    const changeBannerSlide = (direction) => {
+        const newIndex = (currentBannerSlideIndex + direction + totalSlides) % totalSlides;
+        setCurrentBannerSlideIndex(newIndex);
     };
 
-    const currentSlide = (index) => {
-        setCurrentSlideIndex(index);
+    const currentBannerSlide = (index) => {
+        setCurrentBannerSlideIndex(index);
     };
 
-    const updateSlidePosition = () => {
+    const updateBannerSlidePosition = () => {
         const slides = document.querySelector('.slides');
-        const offset = -currentSlideIndex * 100;
+        const offset = -currentBannerSlideIndex * 100;
         slides.style.transform = `translateX(${offset}%)`;
         // updateDots();
     };
@@ -30,23 +30,26 @@ const Banner = () => {
     //     dots[currentSlideIndex].classList.add('active');
     // };
 
+
+
+
     useEffect(() => {
 
         const interval = setInterval(() => {
-            changeSlide(1); // Move to the next slide
+            changeBannerSlide(1); // Move to the next slide
         }, 3000); // Change slide every 3 seconds
-        updateSlidePosition();
+        updateBannerSlidePosition();
 
         // Clear the interval when the component unmounts
         return () => clearInterval(interval);
-    }, [currentSlideIndex]); // Add currentSlideIndex as a dependency
+    }, [currentBannerSlideIndex]); // Add currentSlideIndex as a dependency
 
 
     return (
         <>
             <h2 className='primary'> Welcome to Divueens</h2>
             <section className="banner">
-                <div className="slider">
+                <div className="banner-slider">
                     <div className="slides">
                         {/* Slide 1 */}
 
@@ -56,14 +59,6 @@ const Banner = () => {
                                     <div className="banner-image">
                                     <img src={item} alt="Beauty Combo 1" />
                                     </div>
-                                  
-                                
-                                    {/* <div className='main' style={{
-                                        backgroundImage: `url(${item})`
-                                    }}>
-                                        </div> */}
-                                        {/* <p style={{ marginLeft: '20px' }}>Beauty Combo<br />Rs. 12000/-</p>
-                                    <button onClick={() => buyNow('Beauty Combos', 6000)} style={{ marginLeft: '50px', marginBottom: '10px' }}>Buy Now</button> */}
                                 </div>
 
                             ))
@@ -74,10 +69,10 @@ const Banner = () => {
 
                     </div>
                     <div className="navigation">
-                        <button className="prev" onClick={() => changeSlide(-1)}>❮</button>
-                        <button className="next" onClick={() => changeSlide(1)}>❯</button>
+                        <button className="prev" onClick={() => changeBannerSlide(-1)}>❮</button>
+                        <button className="next" onClick={() => changeBannerSlide(1)}>❯</button>
                     </div>
-                    <div className="banner-button">
+                    {/* <div className="banner-button">
             <button style={{
                 color:'#ffff',
                 backgroundColor:'#000',
@@ -89,7 +84,7 @@ const Banner = () => {
 
 
             }} id="banner-button">Join Now</button>
-            </div>
+            </div> */}
                 </div>
             </section>
 

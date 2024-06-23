@@ -36,7 +36,9 @@ const ExclusiveDiscount = () => {
     </div>
 
     <div className="banner-image">
+        <button style={{border:'none'}}><a href="#">
         <img src={freebies} alt=""/>
+            </a></button>
     </div>
 </section>
   )

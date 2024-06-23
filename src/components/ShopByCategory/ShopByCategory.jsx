@@ -56,20 +56,6 @@ const ShopByCategory = () => {
                 </div>
             </div>
         </div>
-        {/* <div className="secondmain">
-            <div className="heading secondheading">
-                <hr className="hr-left"/>
-                <h2>Exclusive Combos</h2>
-                <hr className="hr-right"/>
-            </div>
-            <marquee>
-                <div className="notifi">
-                    <h4 className="subheading">Exclusive Combos are Coming Soon....</h4>
-                    <h4 className="subheading">Exclusive Combos are Coming Soon....</h4>
-                    <h4 className="subheading">Exclusive Combos are Coming Soon....</h4>
-                </div>
-            </marquee>
-        </div> */}
     </section>
       
     </>

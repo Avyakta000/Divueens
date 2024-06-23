@@ -223,10 +223,12 @@ h2,.contact-section h2{
 
 .refer-section {
     text-align: center; 
+    width: 100%;
 }
 
 .image1 {
-    max-width: 100%; 
+    /* max-width: 100%;  */
+    width: -webkit-fill-available;
     height: auto; 
     display: block; 
     margin: 0 auto; 
