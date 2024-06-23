@@ -55,7 +55,6 @@ const Banner = () => {
                                 <div key={index} className="slide">
                                     <div className="banner-image">
                                     <img src={item} alt="Beauty Combo 1" />
-
                                     </div>
                                   
                                 
@@ -69,6 +68,7 @@ const Banner = () => {
 
                             ))
                         }
+         
 
                         {/* end slide */}
 
@@ -77,7 +77,19 @@ const Banner = () => {
                         <button className="prev" onClick={() => changeSlide(-1)}>❮</button>
                         <button className="next" onClick={() => changeSlide(1)}>❯</button>
                     </div>
+                    <div className="banner-button">
+            <button style={{
+                color:'#ffff',
+                backgroundColor:'#000',
+                borderRadius:'10px',
+                position:'absolute',
+                bottom:'60px',
+                left:'30px',
+                padding:'.5rem 1rem'
 
+
+            }} id="banner-button">Join Now</button>
+            </div>
                 </div>
             </section>
 
