@@ -5,7 +5,7 @@ import TopBrands from './components/TopBrands/TopBrands'
 import ExclusiveDiscount from './components/Exclusive_discount/ExclusiveDiscount'
 import ShopByCategory from './components/ShopByCategory/ShopByCategory'
 import Subscription from './components/Subscription/Subscription'
-// import Banner from './components/Banner/Banner'
+import Banner from './components/Banner/Banner'
 
 
 function App() {
@@ -15,7 +15,7 @@ function App() {
     <>
     {/* <BestSeller/> */}
     <div className="app">
-    {/* <Banner/> */}
+    <Banner/>
     <BestSeller/>
     <TopBrands/>
     <ExclusiveDiscount/>

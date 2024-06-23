@@ -1,74 +1,87 @@
-// import React from 'react'
-// // import './banner.js'
-// import { banner } from '../../assets/assets.js'
+import React, { useEffect, useState } from 'react'
+// import './banner.js'
+import { banner } from '../../assets/assets.js'
 
-// import OwlCarousel from 'react-owl-carousel';
-// import 'owl.carousel/dist/assets/owl.carousel.css';
-// import 'owl.carousel/dist/assets/owl.theme.default.css';
-// const Banner = () => {
-//     // console.log(banner, 'banner')
-//     return (
-//         <>
-//          <h1 className='primary'> hello</h1>
 
-//          <OwlCarousel className='owl-theme' loop margin={10} nav>
-//     <div class='item'>
-//         <h4>1</h4>
-//     </div>
-//     <div class='item'>
-//         <h4>2</h4>
-//     </div>
-//     <div class='item'>
-//         <h4>3</h4>
-//     </div>
-//     <div class='item'>
-//         <h4>4</h4>
-//     </div>
-//     <div class='item'>
-//         <h4>5</h4>
-//     </div>
-//     <div class='item'>
-//         <h4>6</h4>
-//     </div>
-//     <div class='item'>
-//         <h4>7</h4>
-//     </div>
-//     <div class='item'>
-//         <h4>8</h4>
-//     </div>
-//     <div class='item'>
-//         <h4>9</h4>
-//     </div>
-//     <div class='item'>
-//         <h4>10</h4>
-//     </div>
-//     <div class='item'>
-//         <h4>11</h4>
-//     </div>
-//     <div class='item'>
-//         <h4>12</h4>
-//     </div>
-// </OwlCarousel>;
-//         </>
-//     )
-// }
+const Banner = () => {
+    // console.log(banner, 'banner')
+    const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
+    const totalSlides = 4; // Update this according to the number of slides you have
 
-// export default Banner
+    const changeSlide = (direction) => {
+        const newIndex = (currentSlideIndex + direction + totalSlides) % totalSlides;
+        setCurrentSlideIndex(newIndex);
+    };
 
-// {/* <OwlCarousel items={2}
+    const currentSlide = (index) => {
+        setCurrentSlideIndex(index);
+    };
 
-//     className="owl-theme"
+    const updateSlidePosition = () => {
+        const slides = document.querySelector('.slides');
+        const offset = -currentSlideIndex * 100;
+        slides.style.transform = `translateX(${offset}%)`;
+        // updateDots();
+    };
 
-//     loop
+    // const updateDots = () => {
+    //     const dots = document.querySelectorAll('.dot');
+    //     dots.forEach(dot => dot.classList.remove('active'));
+    //     dots[currentSlideIndex].classList.add('active');
+    // };
 
-//     nav
+    useEffect(() => {
 
-//     margin={8} >
-//     {/* {banner.map((banner, index) => {
-//         <div key={index}><img src={banner} alt="" /></div>
-//     })} */}
-//     <div><img src={banner[0]} alt="" /></div>
-//     <div><img src={banner[1]} alt="" /></div>
+        const interval = setInterval(() => {
+            changeSlide(1); // Move to the next slide
+        }, 3000); // Change slide every 3 seconds
+        updateSlidePosition();
 
-// </OwlCarousel>
+        // Clear the interval when the component unmounts
+        return () => clearInterval(interval);
+    }, [currentSlideIndex]); // Add currentSlideIndex as a dependency
 
+
+    return (
+        <>
+            <h2 className='primary'> Welcome to Divueens</h2>
+            <section className="banner">
+                <div className="slider">
+                    <div className="slides">
+                        {/* Slide 1 */}
+
+                        {
+                            banner.map((item, index) => (
+                                <div key={index} className="slide">
+                                    <div className="banner-image">
+                                    <img src={item} alt="Beauty Combo 1" />
+
+                                    </div>
+                                  
+                                
+                                    {/* <div className='main' style={{
+                                        backgroundImage: `url(${item})`
+                                    }}>
+                                        </div> */}
+                                        {/* <p style={{ marginLeft: '20px' }}>Beauty Combo<br />Rs. 12000/-</p>
+                                    <button onClick={() => buyNow('Beauty Combos', 6000)} style={{ marginLeft: '50px', marginBottom: '10px' }}>Buy Now</button> */}
+                                </div>
+
+                            ))
+                        }
+
+                        {/* end slide */}
+
+                    </div>
+                    <div className="navigation">
+                        <button className="prev" onClick={() => changeSlide(-1)}>❮</button>
+                        <button className="next" onClick={() => changeSlide(1)}>❯</button>
+                    </div>
+
+                </div>
+            </section>
+
+        </>
+    )
+}
+ export default Banner
