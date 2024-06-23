@@ -7,21 +7,6 @@
     font-family: "Share Tech Mono", monospace;
 }
 
-.main {
-  width: 100vw;
-  height: 80vh;
-  background-color: white;
-  margin: 20px 0;
-  box-sizing: border-box;
-  padding: 15px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-image: url(/images/background.svg);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
 
 .heading {
   display: flex;
@@ -41,6 +26,8 @@
 
 .heading h2 {
   margin: 20px;
+  font-weight: 900;
+  font-size: 1.2rem;
 }
 
 .heading .hr-right {
@@ -50,7 +37,12 @@
 .heading .hr-left {
   background: linear-gradient(to right, #e9acb600, #e9acb646, #e9acb6bd, #E9ACB6);
 }
-
+.subheading{
+  text-align: center;
+    font-size: 0.9rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+}
 
 @media (max-width: 767px) {
   .heading hr {
@@ -80,7 +72,7 @@
       text-align: center;
   }
   .subheading{
-    font-size: .5rem;
+    /* font-size: .5rem; */
     text-align: center;
   }
 

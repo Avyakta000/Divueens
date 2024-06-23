@@ -60,10 +60,10 @@ const BestSeller = () => {
                 <h2>Best Seller</h2>
                 <hr className="hr-right" />
             </div>
-            <div class="subheading">
+            <div className="subheading">
                 <p>Your Cosmetics and Skincare Products</p>
             </div>
-            <div class="slideBtn container">
+            <div className="slideBtn bestseller_container">
                 <button onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}  style={{
                         backgroundColor: isHovered ? '#ffff' : '#E9ACB6',
@@ -75,14 +75,14 @@ const BestSeller = () => {
                         backgroundColor: isHovered ? '#E9ACB6':'#ffff' ,
                         color: isHovered ? '#fff':'#000' ,
                         transition: 'all 0.3s ease'
-                    }} class="second">Trending Now</button>
+                    }} className="second">Trending Now</button>
             </div>
             <div className="product-container">
 
                 {currentImages.map((image, index) => (
                     <div className="product-card ">
                         <img src={image} alt={`product ${index + currentIndex}`} />
-                        <div class="product-info">
+                        <div className="product-info">
                             <h3>MAC' Face Mask</h3>
                             <p>Rs. 5000/-</p>
                             <button>Buy Now</button>
